@@ -97,16 +97,25 @@ int main()
     int /* Ramo de incendios */ fl_init_fire = 1500, fl_month = 1, fl_firepercentage_inc, fl_firepercentage_dec, /* Ramo de accidentes */ fl_init_accident = 1200, fl_accidentpercentage_inc, fl_accidentpercentage_dec;
     double /* Ramo de incendios */ fl_monthly_firebranch, fl_total_firebranch = 0 /* Ramo de accidentes */, fl_monthly_accidentbranch, fl_total_accidentbranch = 0, /* Diferencia */ fl_branchdifference, fl_totaldifference, /* Promedio */ fl_branchaverage, fl_totalaverage;
     ShowWelcomeMessage();
+    do {
+        cout << "Ingresa el porcentaje de incremento de incendios para los meses de Julio a Septiembre:" << endl;
+        cin >> fl_firepercentage_inc;
+    } while (fl_firepercentage_inc < 0 or fl_firepercentage_inc > 100);
 
-    cout << "Ingresa el porcentaje de incremento de incendios para los meses de Julio a Septiembre:" << endl;
-    cin >> fl_firepercentage_inc;
-    cout << "Ingresa el porcentaje de decremento de incendios para los meses de Octubre a Diciembre:" << endl;
-    cin >> fl_firepercentage_dec;
+    do {
+        cout << "Ingresa el porcentaje de decremento de incendios para los meses de Octubre a Diciembre:" << endl;
+        cin >> fl_firepercentage_dec;
+    } while (fl_firepercentage_dec < 0 or fl_firepercentage_dec > 100);
 
-    cout << "Ingresa el porcentaje de incremento de accidentes para los meses de Julio a Septiembre:" << endl;
-    cin >> fl_accidentpercentage_inc;
-    cout << "Ingresa el porcentaje de decremento de accidentes para los meses de Octubre a Diciembre:" << endl;
-    cin >> fl_accidentpercentage_dec;
+    do {
+        cout << "Ingresa el porcentaje de incremento de accidentes para los meses de Julio a Septiembre:" << endl;
+        cin >> fl_accidentpercentage_inc;
+    } while (fl_accidentpercentage_inc < 0 or fl_accidentpercentage_inc > 100);
+
+    do {
+        cout << "Ingresa el porcentaje de decremento de accidentes para los meses de Octubre a Diciembre:" << endl;
+        cin >> fl_accidentpercentage_dec;
+    } while (fl_accidentpercentage_dec < 0 or fl_accidentpercentage_dec > 100);
 
     cout << "Mes\t\t Incendio \t\t Vehiculos \t\t Diferencia \t\t Promedio" << endl;
     do {
