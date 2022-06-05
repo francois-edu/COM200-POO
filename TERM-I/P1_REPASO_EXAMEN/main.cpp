@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define FL_MAX_MONTHS (12) // Iteracion de los meses de 1 a 12.
+#define FL_MAX_MONTHS (12) // Iteración de los meses de 1 a 12.
 
 void ShowWelcomeMessage() {
     cout << "Hola MYN! Bienvenidos al programa de reportes de incendios y siniestros de vehiculos." << endl;
