@@ -7,8 +7,7 @@ using namespace std;
 
 void ShowWelcomeMessage() {
     cout << "Hola MYN! Bienvenidos al programa de reportes de incendios y siniestros de vehiculos." << endl;
-    cout << "A continuacion, te pedimos que ingreses la informacion faltante para poder mostrarte la tabla.\n"
-            "" << endl;
+    cout << "A continuacion, te pedimos que ingreses la informacion faltante para poder mostrarte la tabla.\n" << endl;
 }
 
 char *GetMonthName(int fl_month)
@@ -94,8 +93,29 @@ char *GetMajorBranchName(double fl_total_firebranch, double fl_total_accidentbra
 
 int main()
 {
-    int /* Ramo de incendios */ fl_init_fire = 1500, fl_month = 1, fl_firepercentage_inc, fl_firepercentage_dec, /* Ramo de accidentes */ fl_init_accident = 1200, fl_accidentpercentage_inc, fl_accidentpercentage_dec;
-    double /* Ramo de incendios */ fl_monthly_firebranch, fl_total_firebranch = 0 /* Ramo de accidentes */, fl_monthly_accidentbranch, fl_total_accidentbranch = 0, /* Diferencia */ fl_branchdifference, fl_totaldifference, /* Promedio */ fl_branchaverage, fl_totalaverage;
+    int /* Ramo de incendios */
+        fl_init_fire = 1500,
+        fl_month = 1,
+        fl_firepercentage_inc,
+        fl_firepercentage_dec,
+            /* Ramo de accidentes */
+        fl_init_accident = 1200,
+        fl_accidentpercentage_inc,
+        fl_accidentpercentage_dec;
+
+    double /* Ramo de incendios */
+        fl_monthly_firebranch,
+        fl_total_firebranch = 0,
+            /* Ramo de accidentes */
+        fl_monthly_accidentbranch,
+        fl_total_accidentbranch = 0,
+            /* Diferencia */
+        fl_branchdifference,
+        fl_totaldifference,
+            /* Promedio */
+        fl_branchaverage,
+        fl_totalaverage;
+
     ShowWelcomeMessage();
     do {
         cout << "Ingresa el porcentaje de incremento de incendios para los meses de Julio a Septiembre:" << endl;
