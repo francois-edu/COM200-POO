@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define FL_MAX_MONTHS (12) // Iteración de los meses de 1 a 12.
+#define FL_MAX_MONTHS (13) // Iteración de los meses de 1 a 12.
 
 void ShowWelcomeMessage() {
     cout << "Hola MYN! Bienvenidos al programa de reportes de incendios y siniestros de vehiculos." << endl;
@@ -68,7 +68,6 @@ char *GetMonthName(int fl_month)
         }
     } // Fin del switch
 }
-
 double GetMajorBranch(double fl_total_firebranch, double fl_total_accidentbranch)
 {
     double fl_major_branch;
@@ -93,9 +92,11 @@ char *GetMajorBranchName(double fl_total_firebranch, double fl_total_accidentbra
 
 int main()
 {
-    int /* Ramo de incendios */
-        fl_init_fire = 1500,
+
+    int
         fl_month = 1,
+    /* Ramo de incendios */
+        fl_init_fire = 1500,
         fl_firepercentage_inc,
         fl_firepercentage_dec,
             /* Ramo de accidentes */
@@ -176,13 +177,19 @@ int main()
 
             cout << GetMonthName(fl_month) << "\t\t " << fl_monthly_firebranch << "\t\t\t " << fl_monthly_accidentbranch << "\t\t\t " << fl_branchdifference << "\t\t\t " << fl_branchaverage << endl;
         }
-        else if (fl_month >= 4 and fl_month <= 6) {
+        if (fl_month >= 4 and fl_month <= 6) {
             fl_monthly_firebranch = fl_monthly_firebranch - (fl_monthly_firebranch * 0.2);
             fl_total_firebranch += fl_monthly_firebranch;
 
             // Accidents branch
-            fl_monthly_accidentbranch = fl_monthly_accidentbranch + (fl_monthly_accidentbranch * 0.2);
-            fl_total_accidentbranch += fl_monthly_accidentbranch;
+            if(fl_month == 4) {
+                fl_monthly_accidentbranch = fl_monthly_accidentbranch + (fl_monthly_accidentbranch * 0.2);
+                fl_total_accidentbranch += fl_monthly_accidentbranch;
+            }
+            else {
+                fl_monthly_accidentbranch = fl_monthly_accidentbranch - (fl_monthly_accidentbranch * 0.1);
+                fl_total_accidentbranch += fl_monthly_accidentbranch;
+            }
 
             // Difference
             fl_branchdifference = fl_monthly_firebranch - fl_monthly_accidentbranch;
@@ -195,7 +202,7 @@ int main()
             /* Solo para formatear el output */
             if (fl_month == 5)
                 cout << GetMonthName(fl_month) << "\t\t " << fl_monthly_firebranch << "\t\t " << fl_monthly_accidentbranch << "\t\t " << fl_branchdifference << "\t\t " << fl_branchaverage << endl;
-            else if (fl_month == 6)
+            if (fl_month == 4 or fl_month == 6)
                 cout << GetMonthName(fl_month) << "\t\t " << fl_monthly_firebranch << "\t\t\t " << fl_monthly_accidentbranch << "\t\t " << fl_branchdifference << "\t\t " << fl_branchaverage << endl;
             /* Fin de formateo */
         }
